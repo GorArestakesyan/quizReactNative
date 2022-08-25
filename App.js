@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Header from "./components/header";
+import { SafeAreaView } from "react-native";
+import { _QuestionsTitles } from "./components/questTexts";
+import { useState } from "react";
+import QuizPage from "./pages/quizPage";
+function App() {
+  const [page, setPage] = useState(0);
 
-export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <SafeAreaView>
+        <Header page={page} />
+      </SafeAreaView>
+      <QuizPage page={page} setPage={setPage} />
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
